@@ -180,6 +180,17 @@ section h2 {
   margin-bottom: 0.6em;
 }
 
+section p a {
+  color: var(--coral);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 111, 115, 0.35);
+  transition: border-color 0.15s ease;
+}
+
+section p a:hover {
+  border-bottom-color: var(--coral);
+}
+
 section p {
   font-size: 1rem;
   font-weight: 300;
