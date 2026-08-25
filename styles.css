@@ -64,12 +64,17 @@ nav.site-nav a:hover {
    remaining links to the right edge without changing nav's flex-end. */
 nav.site-nav a.nav-brand {
   margin-right: auto;
-  font-family: 'Ballet', cursive;
-  color: var(--coral);
-  font-size: 2.6em;
-  line-height: 0.8;
-  text-transform: none;
-  letter-spacing: 0;
+  display: block;
+  line-height: 0;
+  /* nudge up so the artwork's optical centre sits on the nav baseline */
+  align-self: center;
+  margin-top: -1.25em;
+}
+
+nav.site-nav a.nav-brand img {
+  display: block;
+  height: clamp(38px, 4.2vw, 58px);
+  width: auto;
 }
 
 /* ---------- Hero ---------- */
@@ -204,7 +209,12 @@ footer {
   nav.site-nav a.nav-brand {
     margin-right: 0;
     flex-basis: 100%;
-    text-align: center;
-    margin-bottom: 0.2em;
+    margin-top: 0;
+    margin-bottom: 0.4em;
+  }
+
+  /* the img is display:block, so centre it with auto margins, not text-align */
+  nav.site-nav a.nav-brand img {
+    margin-inline: auto;
   }
 }
