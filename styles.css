@@ -49,7 +49,8 @@ nav.site-nav a {
   color: var(--green);
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  /* Canva sets no extra tracking; Cormorant's caps are already open */
+  letter-spacing: 0;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -96,18 +97,21 @@ nav.site-nav a:hover {
   pointer-events: none;
 }
 
-/* Canva: 'Pen &' sits 0.509F left of the frame and 0.336F above it */
+/* Canva ink extents: 'Pen &' sits 0.509F left of the frame, 0.336F above it,
+   and is 1.229F wide. Offsets below are back-solved from the rendered ink box,
+   which sits outside the layout box because of Ballet's tall ascenders. */
 .script-name.first {
-  font-size: calc(var(--frame-w) * 0.41);
-  left: calc(var(--frame-w) * -0.44);
-  top: calc(var(--frame-w) * -0.30);
+  font-size: calc(var(--frame-w) * 0.384);
+  left: calc(var(--frame-w) * -0.493);
+  top: calc(var(--frame-w) * -0.230);
 }
 
-/* Canva: 'Alex' ends 0.387F right of the frame and 0.118F below it */
+/* Canva ink extents: 'Alex' ends 0.387F right of the frame, 0.118F below it,
+   and is 0.900F wide. */
 .script-name.second {
-  font-size: calc(var(--frame-w) * 0.41);
-  right: calc(var(--frame-w) * -0.32);
-  bottom: calc(var(--frame-w) * -0.18);
+  font-size: calc(var(--frame-w) * 0.420);
+  right: calc(var(--frame-w) * -0.384);
+  bottom: calc(var(--frame-w) * -0.140);
 }
 
 /* Canva: date baseline sits ~0.32F below the frame */
@@ -115,7 +119,7 @@ nav.site-nav a:hover {
   margin: calc(var(--frame-w) * 0.30) 0 0;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
   font-size: clamp(0.9rem, 1.5vw, 1.35rem);
   font-weight: 500;
 }
