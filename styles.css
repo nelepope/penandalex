@@ -8,13 +8,13 @@
   --white: #ffffff;
 
   /* Photo frame width drives the whole hero.
-     Canva: frame = 24.4% of canvas width, 43.5% of canvas height. */
-  --frame-w: min(24.4vw, 43.5vh);
+     Canva: frame = 23.3% of canvas width, 42.7% of canvas height. */
+  --frame-w: min(23.3vw, 41.4vh);
 }
 
 @media (orientation: portrait) {
   :root {
-    --frame-w: min(46vw, 38vh);
+    --frame-w: min(44vw, 36vh);
   }
 }
 
@@ -40,7 +40,7 @@ nav.site-nav {
   justify-content: flex-end;
   align-items: baseline;
   gap: 2.4em;
-  padding: 7.1vh 3.7vw 0;
+  padding: 7.47vh 3.7vw 0;
   flex-wrap: wrap;
   font-size: clamp(0.72rem, 1.05vw, 0.95rem);
 }
@@ -72,12 +72,12 @@ nav.site-nav a:hover {
 .frame {
   position: relative;
   width: var(--frame-w);
-  /* Canva frame aspect = 0.968 (w/h) */
-  height: calc(var(--frame-w) / 0.968);
+  /* Canva frame aspect = 0.970 (w/h) */
+  height: calc(var(--frame-w) / 0.970);
   background: var(--white);
-  /* Canva border ≈ 25/542 of frame width */
-  padding: calc(var(--frame-w) * 0.046);
-  margin-top: calc(var(--frame-w) * 0.39); /* room for the 'Pen &' overhang */
+  /* Canva border ≈ 14/318 of frame width */
+  padding: calc(var(--frame-w) * 0.044);
+  margin-top: calc(var(--frame-w) * 0.473); /* room for the 'Alex &' overhang */
 }
 
 .frame img {
@@ -97,26 +97,26 @@ nav.site-nav a:hover {
   pointer-events: none;
 }
 
-/* Canva ink extents: 'Pen &' sits 0.509F left of the frame, 0.336F above it,
-   and is 1.229F wide. Offsets below are back-solved from the rendered ink box,
+/* Canva ink extents: 'Alex &' sits 0.343F left of the frame, 0.280F above it,
+   and is 1.274F wide. Offsets below are back-solved from the rendered ink box,
    which sits outside the layout box because of Ballet's tall ascenders. */
 .script-name.first {
-  font-size: calc(var(--frame-w) * 0.384);
-  left: calc(var(--frame-w) * -0.493);
-  top: calc(var(--frame-w) * -0.230);
+  font-size: calc(var(--frame-w) * 0.358);
+  left: calc(var(--frame-w) * -0.326);
+  top: calc(var(--frame-w) * -0.181);
 }
 
-/* Canva ink extents: 'Alex' ends 0.387F right of the frame, 0.118F below it,
-   and is 0.900F wide. */
+/* Canva ink extents: 'Pen' ends 0.280F right of the frame, 0.116F below it,
+   and is 0.686F wide. */
 .script-name.second {
-  font-size: calc(var(--frame-w) * 0.420);
-  right: calc(var(--frame-w) * -0.384);
+  font-size: calc(var(--frame-w) * 0.382);
+  right: calc(var(--frame-w) * -0.277);
   bottom: calc(var(--frame-w) * -0.140);
 }
 
 /* Canva: date baseline sits ~0.32F below the frame */
 .hero-meta {
-  margin: calc(var(--frame-w) * 0.30) 0 0;
+  margin: calc(var(--frame-w) * 0.316) 0 0;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.16em;
