@@ -202,6 +202,62 @@ section p {
   text-align: center;
 }
 
+/* ---------- Tables ---------- */
+/* wide content scrolls inside its own box so the page never scrolls sideways */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table.stays {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 34rem;
+  font-size: 0.95rem;
+  font-weight: 300;
+}
+
+table.stays th {
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--coral);
+  padding: 0 1rem 0.7rem 0;
+  border-bottom: 1px solid rgba(32, 96, 42, 0.18);
+  white-space: nowrap;
+}
+
+table.stays td {
+  padding: 0.75rem 1rem 0.75rem 0;
+  border-bottom: 1px solid rgba(32, 96, 42, 0.09);
+  vertical-align: baseline;
+}
+
+/* numeric columns sit tighter and centred; the price column stays on one line */
+table.stays th:not(:first-child),
+table.stays td:not(:first-child) {
+  text-align: center;
+  white-space: nowrap;
+}
+
+table.stays th:last-child,
+table.stays td:last-child {
+  text-align: right;
+  padding-right: 0;
+}
+
+table.stays tr:last-child td {
+  border-bottom: none;
+}
+
+table.stays .note {
+  font-size: 0.8em;
+  opacity: 0.65;
+  white-space: nowrap;
+}
+
 footer {
   text-align: center;
   padding: 8vh 0 4vh;
@@ -227,5 +283,63 @@ footer {
   /* the img is display:block, so centre it with auto margins, not text-align */
   nav.site-nav a.nav-brand img {
     margin-inline: auto;
+  }
+
+  /* Stack the stays table into cards so price isn't hidden off-screen */
+  table.stays,
+  table.stays tbody,
+  table.stays tr,
+  table.stays td {
+    display: block;
+    width: auto;
+    min-width: 0;
+  }
+
+  table.stays thead {
+    display: none;
+  }
+
+  table.stays tr {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(32, 96, 42, 0.12);
+  }
+
+  table.stays td {
+    padding: 0;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    text-align: right;
+  }
+
+  table.stays td::before {
+    content: attr(data-label);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    text-align: left;
+  }
+
+  /* property name spans the card as a heading, with no label */
+  table.stays td[data-label="Property"] {
+    display: block;
+    text-align: left;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+
+  table.stays td[data-label="Property"]::before {
+    content: none;
+  }
+
+  table.stays td[data-label="Price"] {
+    margin-top: 0.35rem;
+    color: var(--coral);
+  }
+
+  table.stays tr:last-child {
+    border-bottom: none;
   }
 }
