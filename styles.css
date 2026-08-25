@@ -1,45 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Cormorant+Garamond:wght@400;500;600&display=swap');
 
+/* Palette sampled directly from the Canva artwork */
 :root {
-  --blush: #fbe8e1;
-  --green: #24402e;
-  --coral: #ef6a55;
+  --blush: #fdf1ec;
+  --green: #20602a;
+  --coral: #ff6f73;
   --white: #ffffff;
+
+  /* Photo frame width drives the whole hero.
+     Canva: frame = 24.4% of canvas width, 43.5% of canvas height. */
+  --frame-w: min(24.4vw, 43.5vh);
+}
+
+@media (orientation: portrait) {
+  :root {
+    --frame-w: min(46vw, 38vh);
+  }
 }
 
 * {
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
   background: var(--blush);
+}
+
+body {
   color: var(--green);
   font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
-.wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
-/* Nav */
+/* ---------- Nav ---------- */
+/* Canva: baseline ~8.8% down the canvas, 3.7% right margin */
 nav.site-nav {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
-  gap: 36px;
-  padding: 36px 48px;
+  align-items: baseline;
+  gap: 2.2em;
+  padding: 7.1vh 3.7vw 0;
   flex-wrap: wrap;
+  font-size: clamp(0.9rem, 1.5vw, 1.35rem);
 }
 
 nav.site-nav a {
   color: var(--green);
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 1.05rem;
+  letter-spacing: 0.1em;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -49,87 +59,94 @@ nav.site-nav a:hover {
   color: var(--coral);
 }
 
-/* Hero */
+/* ---------- Hero ---------- */
 .hero {
-  position: relative;
-  max-width: 900px;
-  margin: 20px auto 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0 24px;
 }
 
-.hero-photo-frame {
+/* The frame box is the anchor everything else is positioned against */
+.frame {
   position: relative;
-  width: min(480px, 80vw);
-  margin: 0 auto;
+  width: var(--frame-w);
+  /* Canva frame aspect = 0.968 (w/h) */
+  height: calc(var(--frame-w) / 0.968);
   background: var(--white);
-  padding: 16px 16px 16px;
-  box-shadow: 0 18px 40px rgba(36, 64, 46, 0.15);
-  z-index: 1;
+  /* Canva border ≈ 25/542 of frame width */
+  padding: calc(var(--frame-w) * 0.046);
+  margin-top: calc(var(--frame-w) * 0.39); /* room for the 'Pen &' overhang */
 }
 
-.hero-photo-frame img {
+.frame img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 4.2;
+  height: 100%;
   object-fit: cover;
-  object-position: 50% 15%;
+  object-position: 50% 12%;
 }
 
 .script-name {
+  position: absolute;
   font-family: 'Ballet', cursive;
   color: var(--coral);
-  font-size: clamp(3.5rem, 10vw, 6rem);
   line-height: 1;
-  position: absolute;
-  z-index: 2;
   white-space: nowrap;
+  pointer-events: none;
 }
 
+/* Canva: 'Pen &' sits 0.509F left of the frame and 0.336F above it */
 .script-name.first {
-  top: -1.4rem;
-  left: 0;
+  font-size: calc(var(--frame-w) * 0.41);
+  left: calc(var(--frame-w) * -0.44);
+  top: calc(var(--frame-w) * -0.30);
 }
 
+/* Canva: 'Alex' ends 0.387F right of the frame and 0.118F below it */
 .script-name.second {
-  bottom: -1.6rem;
-  right: 0;
+  font-size: calc(var(--frame-w) * 0.41);
+  right: calc(var(--frame-w) * -0.32);
+  bottom: calc(var(--frame-w) * -0.18);
 }
 
+/* Canva: date baseline sits ~0.32F below the frame */
 .hero-meta {
+  margin: calc(var(--frame-w) * 0.30) 0 0;
   text-align: center;
-  margin-top: 3.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  font-size: clamp(0.9rem, 1.5vw, 1.35rem);
   font-weight: 500;
 }
 
-/* Page content */
+/* ---------- Inner pages ---------- */
 main.page {
   max-width: 720px;
   margin: 0 auto;
-  padding: 20px 24px 100px;
+  padding: 6vh 24px 100px;
 }
 
 h1.page-title {
   font-family: 'Ballet', cursive;
   color: var(--coral);
-  font-size: 3.5rem;
+  font-size: clamp(3.5rem, 8vw, 6rem);
   font-weight: 400;
+  line-height: 1;
   text-align: center;
-  margin-bottom: 8px;
+  margin: 0 0 0.3em;
 }
 
 .page-subtitle {
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 1.05rem;
-  margin-bottom: 48px;
+  letter-spacing: 0.1em;
+  font-size: clamp(0.85rem, 1.3vw, 1.15rem);
+  margin-bottom: 3rem;
 }
 
 section {
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
 section h2 {
@@ -138,12 +155,13 @@ section h2 {
   color: var(--coral);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 10px;
+  margin-bottom: 0.4em;
 }
 
 section p {
   font-size: 1.15rem;
   line-height: 1.7;
+  margin: 0;
 }
 
 .center {
@@ -152,28 +170,15 @@ section p {
 
 footer {
   text-align: center;
-  padding: 24px 0 48px;
+  padding: 8vh 0 4vh;
   font-size: 0.95rem;
-  color: var(--green);
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 @media (max-width: 640px) {
   nav.site-nav {
     justify-content: center;
-    gap: 20px;
-    padding: 28px 20px;
-  }
-
-  .script-name {
-    font-size: clamp(2.6rem, 14vw, 4rem);
-  }
-
-  .script-name.first {
-    top: -1rem;
-  }
-
-  .script-name.second {
-    bottom: -1.1rem;
+    gap: 1.4em;
+    padding: 4vh 20px 0;
   }
 }
