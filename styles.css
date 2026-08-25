@@ -60,6 +60,18 @@ nav.site-nav a:hover {
   color: var(--coral);
 }
 
+/* Monogram home link, inner pages only. margin-right:auto pushes the
+   remaining links to the right edge without changing nav's flex-end. */
+nav.site-nav a.nav-brand {
+  margin-right: auto;
+  font-family: 'Ballet', cursive;
+  color: var(--coral);
+  font-size: 2.6em;
+  line-height: 0.8;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
 /* ---------- Hero ---------- */
 .hero {
   display: flex;
@@ -186,5 +198,13 @@ footer {
     justify-content: center;
     gap: 1.4em;
     padding: 4vh 20px 0;
+  }
+
+  /* Monogram gets its own centred line above the links */
+  nav.site-nav a.nav-brand {
+    margin-right: 0;
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 0.2em;
   }
 }
