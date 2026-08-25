@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Cormorant+Garamond:wght@400;500;600&display=swap');
 
 :root {
   --blush: #fbe8e1;
@@ -76,7 +76,7 @@ nav.site-nav a:hover {
 }
 
 .script-name {
-  font-family: 'Mrs Saint Delafield', cursive;
+  font-family: 'Ballet', cursive;
   color: var(--coral);
   font-size: clamp(3.5rem, 10vw, 6rem);
   line-height: 1;
@@ -112,7 +112,7 @@ main.page {
 }
 
 h1.page-title {
-  font-family: 'Mrs Saint Delafield', cursive;
+  font-family: 'Ballet', cursive;
   color: var(--coral);
   font-size: 3.5rem;
   font-weight: 400;
