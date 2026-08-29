@@ -30,9 +30,9 @@ body {
 
 body {
   color: var(--green);
-  /* American Typewriter is an Apple system font — Mac/iOS viewers get it,
-     everyone else falls back to Rokkitt, a close slab equivalent. */
-  font-family: 'American Typewriter', 'Rokkitt', Georgia, serif;
+  /* Rokkitt leads so every guest sees the same thing; American Typewriter
+     only steps in if Google Fonts fails to load, on Macs. */
+  font-family: 'Rokkitt', 'American Typewriter', Georgia, serif;
 }
 
 /* ---------- Nav ---------- */
