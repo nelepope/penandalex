@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Jost:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Rokkitt:wght@300;400;500&display=swap');
 
 /* Palette sampled directly from the Canva artwork */
 :root {
@@ -30,7 +30,9 @@ body {
 
 body {
   color: var(--green);
-  font-family: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  /* American Typewriter is an Apple system font — Mac/iOS viewers get it,
+     everyone else falls back to Rokkitt, a close slab equivalent. */
+  font-family: 'American Typewriter', 'Rokkitt', Georgia, serif;
 }
 
 /* ---------- Nav ---------- */
