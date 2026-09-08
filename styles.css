@@ -150,6 +150,11 @@ main.page {
   padding: 6vh 24px 100px;
 }
 
+/* pages carrying a wide table need more room */
+main.page-wide {
+  max-width: 940px;
+}
+
 h1.page-title {
   font-family: 'Ballet', cursive;
   color: var(--coral);
