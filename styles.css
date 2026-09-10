@@ -362,3 +362,86 @@ footer {
     border-bottom: none;
   }
 }
+
+/* ---------- Password gate ---------- */
+/* while locked, hide the real page but keep the gate itself visible */
+html.gate-locked body > *:not(#gate) {
+  display: none !important;
+}
+
+#gate {
+  position: fixed;
+  inset: 0;
+  background: var(--blush);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 999;
+}
+
+.gate-inner {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+}
+
+.gate-mark {
+  display: block;
+  width: clamp(120px, 26vw, 190px);
+  height: auto;
+  margin: 0 auto 2.2rem;
+}
+
+.gate-label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: clamp(0.68rem, 1vw, 0.8rem);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.gate-input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.05rem;
+  text-align: center;
+  letter-spacing: 0.08em;
+  color: var(--green);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(32, 96, 42, 0.35);
+  padding: 0.5rem 0;
+  border-radius: 0;
+}
+
+.gate-input:focus {
+  outline: none;
+  border-bottom-color: var(--coral);
+}
+
+.gate-button {
+  margin-top: 1.6rem;
+  font-family: inherit;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--blush);
+  background: var(--coral);
+  border: none;
+  border-radius: 0;
+  padding: 0.8em 2.4em;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.gate-button:hover {
+  opacity: 0.85;
+}
+
+.gate-error {
+  margin: 1.1rem 0 0;
+  font-size: 0.85rem;
+  color: var(--coral);
+}
