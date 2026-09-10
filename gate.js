@@ -11,12 +11,12 @@
 
      printf '%s' 'your-new-password' | shasum -a 256
 
-   Current password: witherenden
+   Current password: albatross
 --------------------------------------------------------------------------- */
 (function () {
   'use strict';
 
-  var PASSWORD_HASH = '88e5550f7060715af07a1bfce10ef0237d80d23a0c341ed1d16f0af5d6b455ae';
+  var PASSWORD_HASH = '24f93dc159383ed5094a231c8bcf3985168a73c9298244548b9f0a49765736a0';
   var STORAGE_KEY = 'alexandpen-unlocked';
 
   // localStorage throws in some privacy modes — never let that break the page
