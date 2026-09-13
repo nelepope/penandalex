@@ -231,7 +231,8 @@ ul.schedule li:last-child {
 }
 
 ul.schedule .time {
-  flex: 0 0 5.5rem;
+  /* wide enough for a range like 14:30–15:00 without wrapping */
+  flex: 0 0 7.6rem;
   color: var(--coral);
   font-size: 0.75rem;
   letter-spacing: 0.14em;
@@ -245,7 +246,7 @@ ul.schedule .time {
   }
 
   ul.schedule .time {
-    flex-basis: 4.6rem;
+    flex-basis: 6.8rem;
   }
 }
 
