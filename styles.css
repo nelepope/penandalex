@@ -230,6 +230,11 @@ ul.schedule li:last-child {
   border-bottom: none;
 }
 
+/* section p has no margin, so give copy following a schedule some air */
+ul.schedule + p {
+  margin-top: 1.3rem;
+}
+
 ul.schedule .time {
   /* wide enough for a range like 14:30–15:00 without wrapping */
   flex: 0 0 7.6rem;
