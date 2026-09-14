@@ -198,6 +198,11 @@ section p a:hover {
   border-bottom-color: var(--coral);
 }
 
+/* Rokkitt is only loaded up to 500, so avoid a browser-faked 700 bold */
+section p strong {
+  font-weight: 500;
+}
+
 section p {
   font-size: 1rem;
   font-weight: 300;
