@@ -198,6 +198,11 @@ section p a:hover {
   border-bottom-color: var(--coral);
 }
 
+/* section p has no margin, so separate consecutive paragraphs */
+section p + p {
+  margin-top: 1rem;
+}
+
 /* Rokkitt is only loaded up to 500, so avoid a browser-faked 700 bold */
 section p strong {
   font-weight: 500;
