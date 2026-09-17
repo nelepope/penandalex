@@ -536,7 +536,7 @@ nav.site-nav .nav-toggle {
     display: block;
     position: absolute;
     top: 14px;
-    left: 12px;
+    right: 12px;
     width: 44px;
     height: 44px;
     padding: 0;
@@ -597,5 +597,33 @@ nav.site-nav .nav-toggle {
 
   html.nav-open {
     overflow: hidden;
+  }
+}
+
+/* ---------- Date and venue line ---------- */
+/* Desktop: one line, "3 July 2027 · Witherenden Farm House, East Sussex".
+   Mobile: stacked on three lines with the ordinal shown. */
+.ev-ord {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .hero-meta,
+  .page-subtitle {
+    line-height: 1.9;
+  }
+
+  .ev-date,
+  .ev-venue,
+  .ev-region {
+    display: block;
+  }
+
+  .ev-sep {
+    display: none;
+  }
+
+  .ev-ord {
+    display: inline;
   }
 }
