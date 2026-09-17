@@ -501,3 +501,101 @@ html.gate-locked body > *:not(#gate) {
   font-size: 0.85rem;
   color: var(--coral);
 }
+
+/* ---------- Mobile menu ---------- */
+/* Built by nav.js. On desktop the wrapper doesn't affect layout and the
+   toggle is hidden, so the nav renders exactly as before. */
+nav.site-nav .nav-links {
+  display: contents;
+}
+
+nav.site-nav .nav-toggle {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  /* header row: hamburger top left, monogram (inner pages) centred */
+  html.nav-js nav.site-nav {
+    position: relative;
+    align-items: center;
+    min-height: 72px;
+    padding: 14px 20px;
+  }
+
+  html.nav-js nav.site-nav a.nav-brand {
+    margin-bottom: 0;
+  }
+
+  /* links hidden until the menu is opened */
+  html.nav-js nav.site-nav:not(.is-open) a:not(.nav-brand),
+  html.nav-js nav.site-nav:not(.is-open) .nav-links {
+    display: none;
+  }
+
+  nav.site-nav .nav-toggle {
+    display: block;
+    position: absolute;
+    top: 14px;
+    left: 12px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    z-index: 60;
+  }
+
+  nav.site-nav .nav-toggle span {
+    position: absolute;
+    left: 11px;
+    width: 22px;
+    height: 1.5px;
+    background: var(--green);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  nav.site-nav .nav-toggle span:nth-child(1) { top: 15px; }
+  nav.site-nav .nav-toggle span:nth-child(2) { top: 21px; }
+  nav.site-nav .nav-toggle span:nth-child(3) { top: 27px; }
+
+  /* open: bars become a cross, pinned so it stays reachable over the menu */
+  nav.site-nav.is-open .nav-toggle {
+    position: fixed;
+  }
+
+  nav.site-nav.is-open .nav-toggle span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  nav.site-nav.is-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  nav.site-nav.is-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  nav.site-nav.is-open .nav-links {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    background: var(--blush);
+    font-size: 0.95rem;
+  }
+
+  /* spacing lives in the padding so each link is a ~47px tap target
+     rather than 18px of text with dead space between */
+  nav.site-nav.is-open .nav-links a {
+    padding: 0.9rem 2rem;
+  }
+
+  html.nav-open {
+    overflow: hidden;
+  }
+}
