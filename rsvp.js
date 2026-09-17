@@ -16,15 +16,16 @@
 (function () {
   'use strict';
 
-  var FORM_ACTION = '';
+  var FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfVmOj1y4-Jloddtxv3l9ATSraw361KNn6IVj93U1kXJRVFNg/formResponse';
   var ENTRY = {
-    name: '',
-    attending: '',
-    dietary: '',
-    camping: ''
+    name: 'entry.954313533',
+    attending: 'entry.1948566302',
+    dietary: 'entry.1494019693',
+    car: 'entry.1300078963',
+    camping: 'entry.1302485824'
   };
 
-  var ATTENDING_YES = "Yes, I'll be there";
+  var ATTENDING_YES = 'Yes I will be there';
 
   function init() {
     var form = document.getElementById('rsvp-form');
@@ -41,7 +42,7 @@
       return el ? el.value : '';
     }
 
-    // dietary and camping only matter for people who are coming
+    // dietary, car and camping only matter for people who are coming
     function syncExtras() {
       extras.hidden = checkedValue('attending') !== ATTENDING_YES;
     }
@@ -96,8 +97,10 @@
       data.append(ENTRY.attending, attending);
       if (attending === ATTENDING_YES) {
         var dietary = form.elements.dietary.value.trim();
+        var car = checkedValue('car');
         var camping = checkedValue('camping');
         if (dietary) data.append(ENTRY.dietary, dietary);
+        if (car) data.append(ENTRY.car, car);
         if (camping) data.append(ENTRY.camping, camping);
       }
 

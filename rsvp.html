@@ -26,17 +26,20 @@
     <p class="page-subtitle"><span class="ev-date">3<span class="ev-ord">rd</span> July 2027</span><span class="ev-sep"> &middot; </span><span class="ev-venue">Witherenden Farm House</span><span class="ev-sep">, </span><span class="ev-region">East Sussex</span></p>
 
     <section class="rsvp">
+      <p class="rsvp-deadline">Please reply by 1st March 2027</p>
+
       <form class="rsvp-form" id="rsvp-form" novalidate>
         <div class="rsvp-field">
-          <label for="rsvp-name">Name(s)</label>
+          <label for="rsvp-name">Name</label>
           <input id="rsvp-name" name="name" type="text" autocomplete="name" />
-          <p class="rsvp-hint">Everyone on your invitation you're replying for</p>
+          <p class="rsvp-hint">Include everyone on your invitation you're replying for</p>
         </div>
 
+        <!-- option values must match the Google Form's wording exactly -->
         <fieldset class="rsvp-field rsvp-choice">
           <legend>Will you be joining us?</legend>
-          <label><input type="radio" name="attending" value="Yes, I'll be there" /><span>Yes, I'll be there</span></label>
-          <label><input type="radio" name="attending" value="Sorry, can't make it" /><span>Sorry, can't make it</span></label>
+          <label><input type="radio" name="attending" value="Yes I will be there" /><span>Yes I will be there</span></label>
+          <label><input type="radio" name="attending" value="No, I can't make it" /><span>No, I can't make it</span></label>
         </fieldset>
 
         <div class="rsvp-if-attending" hidden>
@@ -46,9 +49,16 @@
           </div>
 
           <fieldset class="rsvp-field rsvp-choice">
-            <legend>Camping in the garden?</legend>
-            <label><input type="radio" name="camping" value="Yes" /><span>Yes</span></label>
+            <legend>Will you be coming by car?</legend>
+            <label><input type="radio" name="car" value="Yes" /><span>Yes</span></label>
+            <label><input type="radio" name="car" value="No" /><span>No</span></label>
+          </fieldset>
+
+          <fieldset class="rsvp-field rsvp-choice">
+            <legend>Would you like to camp in the garden?</legend>
             <label><input type="radio" name="camping" value="No" /><span>No</span></label>
+            <label><input type="radio" name="camping" value="Yes" /><span>Yes</span></label>
+            <label><input type="radio" name="camping" value="Possibly" /><span>Possibly</span></label>
           </fieldset>
         </div>
 

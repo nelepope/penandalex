@@ -787,3 +787,11 @@ div.rsvp-field > label,
 .rsvp .rsvp-thanks-body {
   margin: 0;
 }
+
+.rsvp .rsvp-deadline {
+  margin: 0 0 2.4rem;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
