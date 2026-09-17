@@ -627,3 +627,163 @@ nav.site-nav .nav-toggle {
     display: inline;
   }
 }
+
+/* ---------- RSVP form ---------- */
+.rsvp {
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.rsvp-field {
+  margin: 0 0 1.9rem;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+/* question titles only — the answer options are labels too, so scope to the
+   text-field label rather than every label in a field */
+div.rsvp-field > label,
+.rsvp-field > legend {
+  display: block;
+  padding: 0;
+  margin-bottom: 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--coral);
+}
+
+.rsvp-field input[type="text"],
+.rsvp-field textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--green);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(32, 96, 42, 0.35);
+  border-radius: 0;
+  padding: 0.45rem 0;
+}
+
+.rsvp-field textarea {
+  border: 1px solid rgba(32, 96, 42, 0.25);
+  padding: 0.6rem 0.7rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.rsvp-field input[type="text"]:focus,
+.rsvp-field textarea:focus {
+  outline: none;
+  border-color: var(--coral);
+}
+
+.rsvp-hint {
+  margin: 0.45rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+/* radio choices as tappable pills; the real input stays for keyboard and
+   screen-reader use */
+.rsvp-choice label {
+  position: relative;
+  display: inline-block;
+  margin: 0 0.5rem 0.6rem 0;
+  cursor: pointer;
+}
+
+.rsvp-choice input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.rsvp-choice span {
+  display: inline-block;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(32, 96, 42, 0.35);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.rsvp-choice input:checked + span {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: var(--white);
+}
+
+.rsvp-choice input:focus-visible + span {
+  outline: 2px solid var(--coral);
+  outline-offset: 2px;
+}
+
+.rsvp-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.rsvp-submit {
+  font-family: inherit;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--white);
+  background: var(--coral);
+  border: none;
+  border-radius: 0;
+  padding: 0.95em 2.6em;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.rsvp-submit:hover {
+  opacity: 0.85;
+}
+
+.rsvp-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.rsvp .rsvp-error {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  color: var(--coral);
+}
+
+.rsvp-thanks {
+  text-align: center;
+  padding: 1rem 0 2rem;
+}
+
+.rsvp-thanks:focus {
+  outline: none;
+}
+
+.rsvp .rsvp-thanks-title {
+  font-family: 'Ballet', cursive;
+  font-weight: 400;
+  font-size: clamp(3rem, 10vw, 4.5rem);
+  line-height: 1;
+  color: var(--coral);
+  margin: 0 0 1rem;
+}
+
+.rsvp .rsvp-thanks-body {
+  margin: 0;
+}

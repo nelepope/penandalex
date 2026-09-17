@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="gate.js"></script>
   <script src="nav.js"></script>
+  <script src="rsvp.js" defer></script>
 </head>
 <body>
   <nav class="site-nav">
@@ -24,8 +25,46 @@
     <h1 class="page-title">RSVP</h1>
     <p class="page-subtitle"><span class="ev-date">3<span class="ev-ord">rd</span> July 2027</span><span class="ev-sep"> &middot; </span><span class="ev-venue">Witherenden Farm House</span><span class="ev-sep">, </span><span class="ev-region">East Sussex</span></p>
 
-    <section class="center">
-      <p>RSVP details coming soon.</p>
+    <section class="rsvp">
+      <form class="rsvp-form" id="rsvp-form" novalidate>
+        <div class="rsvp-field">
+          <label for="rsvp-name">Name(s)</label>
+          <input id="rsvp-name" name="name" type="text" autocomplete="name" />
+          <p class="rsvp-hint">Everyone on your invitation you're replying for</p>
+        </div>
+
+        <fieldset class="rsvp-field rsvp-choice">
+          <legend>Will you be joining us?</legend>
+          <label><input type="radio" name="attending" value="Yes, I'll be there" /><span>Yes, I'll be there</span></label>
+          <label><input type="radio" name="attending" value="Sorry, can't make it" /><span>Sorry, can't make it</span></label>
+        </fieldset>
+
+        <div class="rsvp-if-attending" hidden>
+          <div class="rsvp-field">
+            <label for="rsvp-dietary">Dietary requirements</label>
+            <textarea id="rsvp-dietary" name="dietary" rows="3"></textarea>
+          </div>
+
+          <fieldset class="rsvp-field rsvp-choice">
+            <legend>Camping in the garden?</legend>
+            <label><input type="radio" name="camping" value="Yes" /><span>Yes</span></label>
+            <label><input type="radio" name="camping" value="No" /><span>No</span></label>
+          </fieldset>
+        </div>
+
+        <!-- spam trap: hidden from people, filled in by bots -->
+        <div class="rsvp-hp" aria-hidden="true">
+          <label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <button class="rsvp-submit" type="submit">Send RSVP</button>
+        <p class="rsvp-error" role="alert" hidden></p>
+      </form>
+
+      <div class="rsvp-thanks" id="rsvp-thanks" tabindex="-1" hidden>
+        <p class="rsvp-thanks-title">Thank you</p>
+        <p class="rsvp-thanks-body"></p>
+      </div>
     </section>
   </main>
 
