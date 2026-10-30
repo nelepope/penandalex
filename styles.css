@@ -807,11 +807,3 @@ figure.map img {
   height: auto;
 }
 
-figure.map figcaption {
-  margin-top: 0.8rem;
-  text-align: center;
-  font-size: 0.8rem;
-  font-weight: 300;
-  letter-spacing: 0.06em;
-  opacity: 0.75;
-}
