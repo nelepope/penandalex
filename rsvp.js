@@ -38,21 +38,10 @@
     var thanksBody = thanks.querySelector('.rsvp-thanks-body');
     var error = form.querySelector('.rsvp-error');
     var button = form.querySelector('.rsvp-submit');
-    var extras = form.querySelector('.rsvp-if-attending');
-
     function checkedValue(name) {
       var el = form.querySelector('input[name="' + name + '"]:checked');
       return el ? el.value : '';
     }
-
-    // menu, dietary, car and camping only matter for people who are coming
-    function syncExtras() {
-      extras.hidden = checkedValue('attending') !== ATTENDING_YES;
-    }
-    form.addEventListener('change', function (e) {
-      if (e.target.name === 'attending') syncExtras();
-    });
-    syncExtras();
 
     function showError(message) {
       error.textContent = message;
@@ -98,16 +87,14 @@
       var data = new URLSearchParams();
       data.append(ENTRY.name, name);
       data.append(ENTRY.attending, attending);
-      if (attending === ATTENDING_YES) {
-        ['main', 'pudding', 'car', 'camping'].forEach(function (field) {
-          var value = checkedValue(field);
-          if (value) data.append(ENTRY[field], value);
-        });
-        var dietary = form.elements.dietary.value.trim();
-        if (dietary) data.append(ENTRY.dietary, dietary);
-      }
-      var notes = form.elements.notes.value.trim();
-      if (notes) data.append(ENTRY.notes, notes);
+      ['main', 'pudding', 'car', 'camping'].forEach(function (field) {
+        var value = checkedValue(field);
+        if (value) data.append(ENTRY[field], value);
+      });
+      ['dietary', 'notes'].forEach(function (field) {
+        var value = form.elements[field].value.trim();
+        if (value) data.append(ENTRY[field], value);
+      });
 
       button.disabled = true;
       button.textContent = 'Sending…';
