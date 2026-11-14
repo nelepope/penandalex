@@ -32,7 +32,7 @@
         <div class="rsvp-field">
           <label for="rsvp-name">Name</label>
           <input id="rsvp-name" name="name" type="text" autocomplete="name" />
-          <p class="rsvp-hint">Include everyone on your invitation you're replying for</p>
+          <p class="rsvp-hint">One person per reply &mdash; if you&rsquo;re replying for others too, send a reply for each of them</p>
         </div>
 
         <!-- option values must match the Google Form's wording exactly -->
@@ -43,14 +43,28 @@
         </fieldset>
 
         <div class="rsvp-if-attending" hidden>
+          <fieldset class="rsvp-field rsvp-choice rsvp-choice--stack">
+            <legend>Which main course would you prefer?</legend>
+            <label><input type="radio" name="main" value="Grilled Surrey farm beef fillet, salsa verde" /><span>Grilled Surrey farm beef fillet, salsa verde</span></label>
+            <label><input type="radio" name="main" value="Chermoula marinated Loch Duart salmon, coriander &amp; chilli" /><span>Chermoula marinated Loch Duart salmon, coriander &amp; chilli</span></label>
+            <label><input type="radio" name="main" value="Coriander &amp; lemon falafel, pickled red onion, tzatziki (ve)" /><span>Coriander &amp; lemon falafel, pickled red onion, tzatziki (ve)</span></label>
+          </fieldset>
+
+          <fieldset class="rsvp-field rsvp-choice rsvp-choice--stack">
+            <legend>Which pudding would you prefer?</legend>
+            <label><input type="radio" name="pudding" value="Basque cheesecake" /><span>Basque cheesecake</span></label>
+            <label><input type="radio" name="pudding" value="Strawberry trifle" /><span>Strawberry trifle</span></label>
+            <label><input type="radio" name="pudding" value="Chocolate pavlova &amp; black cherry compote" /><span>Chocolate pavlova &amp; black cherry compote</span></label>
+          </fieldset>
+
           <div class="rsvp-field">
             <label for="rsvp-dietary">Dietary requirements</label>
             <textarea id="rsvp-dietary" name="dietary" rows="3"></textarea>
           </div>
 
           <fieldset class="rsvp-field rsvp-choice">
-            <legend>Will you be coming by car?</legend>
-            <label><input type="radio" name="car" value="Yes" /><span>Yes</span></label>
+            <legend>Will you need space for car parking?</legend>
+            <label><input type="radio" name="car" value="Yes please" /><span>Yes please</span></label>
             <label><input type="radio" name="car" value="No" /><span>No</span></label>
           </fieldset>
 
@@ -60,6 +74,11 @@
             <label><input type="radio" name="camping" value="Yes" /><span>Yes</span></label>
             <label><input type="radio" name="camping" value="Possibly" /><span>Possibly</span></label>
           </fieldset>
+        </div>
+
+        <div class="rsvp-field">
+          <label for="rsvp-notes">Anything else you&rsquo;d like us to know?</label>
+          <textarea id="rsvp-notes" name="notes" rows="3"></textarea>
         </div>
 
         <!-- spam trap: hidden from people, filled in by bots -->

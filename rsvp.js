@@ -20,9 +20,12 @@
   var ENTRY = {
     name: 'entry.954313533',
     attending: 'entry.1948566302',
+    main: 'entry.1256971593',
+    pudding: 'entry.722334955',
     dietary: 'entry.1494019693',
     car: 'entry.1300078963',
-    camping: 'entry.1302485824'
+    camping: 'entry.1302485824',
+    notes: 'entry.1206586148'
   };
 
   var ATTENDING_YES = 'Yes I will be there';
@@ -42,7 +45,7 @@
       return el ? el.value : '';
     }
 
-    // dietary, car and camping only matter for people who are coming
+    // menu, dietary, car and camping only matter for people who are coming
     function syncExtras() {
       extras.hidden = checkedValue('attending') !== ATTENDING_YES;
     }
@@ -96,13 +99,15 @@
       data.append(ENTRY.name, name);
       data.append(ENTRY.attending, attending);
       if (attending === ATTENDING_YES) {
+        ['main', 'pudding', 'car', 'camping'].forEach(function (field) {
+          var value = checkedValue(field);
+          if (value) data.append(ENTRY[field], value);
+        });
         var dietary = form.elements.dietary.value.trim();
-        var car = checkedValue('car');
-        var camping = checkedValue('camping');
         if (dietary) data.append(ENTRY.dietary, dietary);
-        if (car) data.append(ENTRY.car, car);
-        if (camping) data.append(ENTRY.camping, camping);
       }
+      var notes = form.elements.notes.value.trim();
+      if (notes) data.append(ENTRY.notes, notes);
 
       button.disabled = true;
       button.textContent = 'Sending…';

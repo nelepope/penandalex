@@ -718,6 +718,22 @@ div.rsvp-field > label,
   transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
+/* dish names are too long for uppercase pills: one per row, in sentence case */
+.rsvp-choice--stack label {
+  display: block;
+  margin-right: 0;
+}
+
+.rsvp-choice--stack span {
+  display: block;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 300;
+  letter-spacing: normal;
+  text-transform: none;
+  line-height: 1.45;
+}
+
 .rsvp-choice input:checked + span {
   background: var(--coral);
   border-color: var(--coral);
