@@ -93,9 +93,7 @@ nav.site-nav a.nav-brand img {
   width: var(--frame-w);
   /* Canva frame aspect = 0.970 (w/h) */
   height: calc(var(--frame-w) / 0.970);
-  background: var(--white);
-  /* Canva border ≈ 14/318 of frame width */
-  padding: calc(var(--frame-w) * 0.044);
+  /* The photo carries its own white border, so no padding or fill here */
   margin-top: calc(var(--frame-w) * 0.473); /* room for the 'Alex &' overhang */
 }
 
@@ -104,7 +102,7 @@ nav.site-nav a.nav-brand img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 12%;
+  object-position: center;
 }
 
 .script-name {
