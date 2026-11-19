@@ -774,6 +774,16 @@ div.rsvp-field > label,
   cursor: default;
 }
 
+.rsvp-quick {
+  margin: -0.6rem 0 2.6rem;
+  padding-bottom: 2.2rem;
+  border-bottom: 1px solid rgba(32, 96, 42, 0.2);
+}
+
+.rsvp-quick .rsvp-hint {
+  margin-top: 1rem;
+}
+
 .rsvp .rsvp-error {
   margin: 1rem 0 0;
   font-size: 0.9rem;

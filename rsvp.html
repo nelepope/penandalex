@@ -42,6 +42,13 @@
           <label><input type="radio" name="attending" value="No, I can't make it" /><span>No, I can't make it</span></label>
         </fieldset>
 
+        <!-- quick reply: sends now with just name and attendance -->
+        <div class="rsvp-quick">
+          <button class="rsvp-submit" type="submit">Send RSVP</button>
+          <p class="rsvp-error" role="alert" hidden></p>
+          <p class="rsvp-hint">Or add your meal choices and other details below, then send</p>
+        </div>
+
         <div class="rsvp-if-attending">
           <fieldset class="rsvp-field rsvp-choice rsvp-choice--stack">
             <legend>Which main course would you prefer?</legend>

@@ -36,8 +36,12 @@
 
     var thanks = document.getElementById('rsvp-thanks');
     var thanksBody = thanks.querySelector('.rsvp-thanks-body');
-    var error = form.querySelector('.rsvp-error');
-    var button = form.querySelector('.rsvp-submit');
+    // two send buttons: a quick one under the attendance question and one at
+    // the bottom; errors show next to whichever was pressed
+    var buttons = form.querySelectorAll('.rsvp-submit');
+    var errors = form.querySelectorAll('.rsvp-error');
+    var error = errors[errors.length - 1];
+
     function checkedValue(name) {
       var el = form.querySelector('input[name="' + name + '"]:checked');
       return el ? el.value : '';
@@ -46,6 +50,13 @@
     function showError(message) {
       error.textContent = message;
       error.hidden = false;
+    }
+
+    function setSending(sending) {
+      Array.prototype.forEach.call(buttons, function (b) {
+        b.disabled = sending;
+        b.textContent = sending ? 'Sending…' : 'Send RSVP';
+      });
     }
 
     function finish(attending) {
@@ -59,7 +70,9 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      error.hidden = true;
+      Array.prototype.forEach.call(errors, function (el) { el.hidden = true; });
+      var pressed = e.submitter && e.submitter.parentNode.querySelector('.rsvp-error');
+      error = pressed || errors[errors.length - 1];
 
       var attending = checkedValue('attending');
 
@@ -96,14 +109,12 @@
         if (value) data.append(ENTRY[field], value);
       });
 
-      button.disabled = true;
-      button.textContent = 'Sending…';
+      setSending(true);
 
       fetch(FORM_ACTION, { method: 'POST', mode: 'no-cors', body: data })
         .then(function () { finish(attending); })
         .catch(function () {
-          button.disabled = false;
-          button.textContent = 'Send RSVP';
+          setSending(false);
           showError('That didn’t send — please check your connection and try again.');
         });
     });
