@@ -25,7 +25,8 @@
     dietary: 'entry.1494019693',
     car: 'entry.1300078963',
     camping: 'entry.1302485824',
-    notes: 'entry.1206586148'
+    notes: 'entry.1206586148',
+    menuName: 'entry.2125904040'
   };
 
   var ATTENDING_YES = 'Yes I will be there';
@@ -54,8 +55,9 @@
 
     function setSending(sending) {
       Array.prototype.forEach.call(buttons, function (b) {
+        if (!b.dataset.label) b.dataset.label = b.textContent;
         b.disabled = sending;
-        b.textContent = sending ? 'Sending…' : 'Send RSVP';
+        b.textContent = sending ? 'Sending…' : b.dataset.label;
       });
     }
 
@@ -84,7 +86,7 @@
 
       var name = form.elements.name.value.trim();
       if (!name) {
-        showError('Please add your name.');
+        showError('Please add your name or names.');
         form.elements.name.focus();
         return;
       }
@@ -104,7 +106,7 @@
         var value = checkedValue(field);
         if (value) data.append(ENTRY[field], value);
       });
-      ['dietary', 'notes'].forEach(function (field) {
+      ['dietary', 'notes', 'menuName'].forEach(function (field) {
         var value = form.elements[field].value.trim();
         if (value) data.append(ENTRY[field], value);
       });

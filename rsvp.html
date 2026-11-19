@@ -30,9 +30,8 @@
 
       <form class="rsvp-form" id="rsvp-form" novalidate>
         <div class="rsvp-field">
-          <label for="rsvp-name">Name</label>
+          <label for="rsvp-name">Name/s</label>
           <input id="rsvp-name" name="name" type="text" autocomplete="name" />
-          <p class="rsvp-hint">One person per reply &mdash; if you&rsquo;re replying for others too, send a reply for each of them</p>
         </div>
 
         <!-- option values must match the Google Form's wording exactly -->
@@ -42,50 +41,58 @@
           <label><input type="radio" name="attending" value="No, I can't make it" /><span>No, I can't make it</span></label>
         </fieldset>
 
-        <!-- quick reply: sends now with just name and attendance -->
+        <fieldset class="rsvp-field rsvp-choice">
+          <legend>Will you be requiring space for car parking?</legend>
+          <label><input type="radio" name="car" value="Yes please" /><span>Yes please</span></label>
+          <label><input type="radio" name="car" value="No thank you" /><span>No thank you</span></label>
+          <label><input type="radio" name="car" value="Not sure yet" /><span>Not sure yet</span></label>
+        </fieldset>
+
+        <fieldset class="rsvp-field rsvp-choice">
+          <legend>Would you like to camp in the garden?</legend>
+          <label><input type="radio" name="camping" value="No" /><span>No</span></label>
+          <label><input type="radio" name="camping" value="Yes" /><span>Yes</span></label>
+          <label><input type="radio" name="camping" value="Possibly" /><span>Possibly</span></label>
+          <label><input type="radio" name="camping" value="Absolutely not I hate camping" /><span>Absolutely not I hate camping</span></label>
+        </fieldset>
+
+        <div class="rsvp-field">
+          <label for="rsvp-notes">Is there anything else you would like us to know?</label>
+          <textarea id="rsvp-notes" name="notes" rows="3"></textarea>
+        </div>
+
+        <!-- quick reply: sends now without the menu choices -->
         <div class="rsvp-quick">
           <button class="rsvp-submit" type="submit">Send RSVP</button>
           <p class="rsvp-error" role="alert" hidden></p>
-          <p class="rsvp-hint">Or add your meal choices and other details below, then send</p>
+          <p class="rsvp-hint">Or add your menu choices below, then send</p>
         </div>
 
-        <div class="rsvp-if-attending">
-          <fieldset class="rsvp-field rsvp-choice">
-            <legend>Will you need space for car parking?</legend>
-            <label><input type="radio" name="car" value="Yes please" /><span>Yes please</span></label>
-            <label><input type="radio" name="car" value="No" /><span>No</span></label>
-          </fieldset>
-
-          <fieldset class="rsvp-field rsvp-choice">
-            <legend>Would you like to camp in the garden?</legend>
-            <label><input type="radio" name="camping" value="No" /><span>No</span></label>
-            <label><input type="radio" name="camping" value="Yes" /><span>Yes</span></label>
-            <label><input type="radio" name="camping" value="Possibly" /><span>Possibly</span></label>
-          </fieldset>
-
-          <fieldset class="rsvp-field rsvp-choice rsvp-choice--stack">
-            <legend>Which main course would you prefer?</legend>
-            <label><input type="radio" name="main" value="Grilled Surrey farm beef fillet, salsa verde" /><span>Grilled Surrey farm beef fillet, salsa verde</span></label>
-            <label><input type="radio" name="main" value="Chermoula marinated Loch Duart salmon, coriander &amp; chilli" /><span>Chermoula marinated Loch Duart salmon, coriander &amp; chilli</span></label>
-            <label><input type="radio" name="main" value="Coriander &amp; lemon falafel, pickled red onion, tzatziki (ve)" /><span>Coriander &amp; lemon falafel, pickled red onion, tzatziki (ve)</span></label>
-          </fieldset>
-
-          <fieldset class="rsvp-field rsvp-choice rsvp-choice--stack">
-            <legend>Which pudding would you prefer?</legend>
-            <label><input type="radio" name="pudding" value="Basque cheesecake" /><span>Basque cheesecake</span></label>
-            <label><input type="radio" name="pudding" value="Strawberry trifle" /><span>Strawberry trifle</span></label>
-            <label><input type="radio" name="pudding" value="Chocolate pavlova &amp; black cherry compote" /><span>Chocolate pavlova &amp; black cherry compote</span></label>
-          </fieldset>
-
-          <div class="rsvp-field">
-            <label for="rsvp-dietary">Dietary requirements</label>
-            <textarea id="rsvp-dietary" name="dietary" rows="3"></textarea>
-          </div>
-        </div>
+        <h2 class="rsvp-section">Menu choices</h2>
+        <p class="rsvp-section-note">Can be filled in later.</p>
 
         <div class="rsvp-field">
-          <label for="rsvp-notes">Anything else you&rsquo;d like us to know?</label>
-          <textarea id="rsvp-notes" name="notes" rows="3"></textarea>
+          <label for="rsvp-menu-name">Name (one person only)</label>
+          <input id="rsvp-menu-name" name="menuName" type="text" autocomplete="name" />
+        </div>
+
+        <fieldset class="rsvp-field rsvp-choice rsvp-choice--stack">
+          <legend>Which main course would you prefer?</legend>
+          <label><input type="radio" name="main" value="Grilled Surrey farm beef fillet, salsa verde" /><span>Grilled Surrey farm beef fillet, salsa verde</span></label>
+          <label><input type="radio" name="main" value="Chermoula marinated Loch Duart salmon, coriander &amp; chilli" /><span>Chermoula marinated Loch Duart salmon, coriander &amp; chilli</span></label>
+          <label><input type="radio" name="main" value="Coriander &amp; lemon falafel, pickled red onion, tzatziki (ve)" /><span>Coriander &amp; lemon falafel, pickled red onion, tzatziki (ve)</span></label>
+        </fieldset>
+
+        <fieldset class="rsvp-field rsvp-choice rsvp-choice--stack">
+          <legend>Which pudding would you prefer?</legend>
+          <label><input type="radio" name="pudding" value="Basque cheesecake" /><span>Basque cheesecake</span></label>
+          <label><input type="radio" name="pudding" value="Strawberry trifle" /><span>Strawberry trifle</span></label>
+          <label><input type="radio" name="pudding" value="Chocolate pavlova &amp; black cherry compote" /><span>Chocolate pavlova &amp; black cherry compote</span></label>
+        </fieldset>
+
+        <div class="rsvp-field">
+          <label for="rsvp-dietary">Do you have any food requirements?</label>
+          <textarea id="rsvp-dietary" name="dietary" rows="3"></textarea>
         </div>
 
         <!-- spam trap: hidden from people, filled in by bots -->
@@ -93,7 +100,7 @@
           <label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
         </div>
 
-        <button class="rsvp-submit" type="submit">Send RSVP</button>
+        <button class="rsvp-submit" type="submit">Send</button>
         <p class="rsvp-error" role="alert" hidden></p>
       </form>
 

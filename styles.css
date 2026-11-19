@@ -784,6 +784,28 @@ div.rsvp-field > label,
   margin-top: 1rem;
 }
 
+.rsvp .rsvp-section {
+  margin: 0 0 1.6rem;
+  font-family: 'Ballet', cursive;
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--coral);
+}
+
+.rsvp .rsvp-section ~ .rsvp-section {
+  margin-top: 2.8rem;
+}
+
+.rsvp .rsvp-section-note {
+  margin: -1rem 0 1.9rem;
+  font-size: 0.9rem;
+  font-weight: 300;
+  opacity: 0.7;
+}
+
 .rsvp .rsvp-error {
   margin: 1rem 0 0;
   font-size: 0.9rem;
